@@ -1,0 +1,3 @@
+famfamfam Icons
+  Web: http://www.famfamfam.com/
+  License: http://creativecommons.org/licenses/by/2.5/

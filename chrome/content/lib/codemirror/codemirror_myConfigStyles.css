@@ -1,0 +1,15 @@
+
+/* matchingbracket */
+div.CodeMirror span.CodeMirror-matchingbracket {
+	background: #97c4ed;
+	color: #000;
+}
+
+.bodymargen .cm-matchhighlight {
+
+    /*box-shadow: 0 0 0 100px rgba(251, 250, 116, 0.5) inset;*/
+	box-shadow:0 0 0 100px rgba(131, 251, 116, 0.69) inset;
+}
+.bodymargen .CodeMirror-focused .CodeMirror-selected, .CodeMirror-selected {
+    background: none repeat scroll 0 0 rgba(96, 73, 204, 0.7);
+}

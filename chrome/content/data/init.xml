@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<snippets>
+  <snippet name="test">
+    <code>
+      <![CDATA[
+	  //TEST
+	  console.log("test");
+      ]]>
+    </code>
+  </snippet>
+</snippets>

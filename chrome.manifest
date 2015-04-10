@@ -1,0 +1,6 @@
+content  firebugsnippets chrome/content/
+content  firebugsnippets chrome/content/ contentaccessible=yes 
+skin     firebugsnippets classic/1.0   chrome/skin/classic/
+locale   firebugsnippets es-ES         locale/es-ES/
+locale   firebugsnippets en-US         locale/en-US/
+

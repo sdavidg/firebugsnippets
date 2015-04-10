@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>snippetsWindowEdit</title>	
+	<link href="snippetsWindowEdit.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bodymargen" onload="SnippetsWindowEdit.onLoad()">
+
+<fieldset>
+	<legend>
+		<input type="text" id="name" value="" size="50">
+	</legend>
+	<button id="name_group" class="button_like_text">Grupo al que pertenece:</button>
+	<select id="id_snippets_groups">		
+	</select><br/>
+	<textarea id="code" rows="30" cols="120" style=""></textarea>
+	<div class="buttons">
+		<button id="save">Guardar</button><button id="cancel">Cancelar</button>
+	</div>
+</fieldset>	
+	<script type="text/javascript">
+		var args = window.arguments[0];
+		SnippetsWindowEdit = new args.SnippetsWindowEdit(window, args.id, args.conf);
+	</script>
+</body>
+</html>

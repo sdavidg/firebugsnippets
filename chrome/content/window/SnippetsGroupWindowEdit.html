@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>SnippetsGroupWindowEdit</title>
+	<link href="snippetsGroupWindowEdit.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bodymargen" onload="SnippetsGroupWindowEdit.onLoad()">
+	<table border="0" id="grupos">
+		<thead>
+			<tr>
+				<th>
+					<button id="name_group" class="button_like_text">Nombre del grupo:</button>
+				</th>
+				<th>
+					<button id="open_group" class="button_like_text">¿Abierto?</button>
+				</th>
+				<td class="cabecera"><img id="add" src="chrome://firebugsnippets/skin/add.png"></td>
+			</tr>
+		</thead>
+		<tbody id="body_groups">
+			<tr id="dummy">
+				<td>
+					<input type="text" name="name" value="" size="30">
+				</td>
+				<td class="open">
+					<input type="checkbox" name="open" value="S">
+				</td>
+				<td>
+					<img class="delete" src="chrome://firebugsnippets/skin/delete.png">
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="3">
+					<div class="buttons">
+						<button id="save">Guardar</button><button id="cancel">Cancelar</button>
+					</div>
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+	<script type="text/javascript">
+		var args = window.arguments[0];
+		SnippetsGroupWindowEdit = new args.SnippetsGroupWindowEdit(window, args.id, args.conf);
+	</script>
+</body>
+</html>
