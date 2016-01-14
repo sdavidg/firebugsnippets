@@ -19,29 +19,60 @@ function(DynamicLoader, Store, FBL, Options, console)
 		this.conf = conf;
 
 		this.baseruta = "chrome://firebugsnippets/skin/";
-
 		var rutaLib = "chrome://firebugsnippets/content/lib/"
+		
+		var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+			.getService(Components.interfaces.nsIXULAppInfo);
+		
+		var arrJS, rutaCodemirror;		
+		if(parseInt(appInfo.version)<=43)
+		{
+			rutaCodemirror = "chrome://browser/content/devtools/codemirror/";
+			arrJS = [	
+				rutaLib+"jquery.min.js",
+				rutaLib+"jqueryInitializer.js",
+				rutaCodemirror+"codemirror.js",
+				rutaCodemirror+"dialog.js",
+				rutaCodemirror+"searchcursor.js",
+				rutaCodemirror+"search.js",
+				rutaCodemirror+"activeline.js",
+				rutaLib+"codemirror/addon/search/match-highlighter.js",
+				rutaCodemirror+"matchbrackets.js",
+				rutaCodemirror+"javascript.js",
+				rutaCodemirror+"foldcode.js",
+				rutaCodemirror+"foldgutter.js",
+				rutaCodemirror+"brace-fold.js",
+				rutaCodemirror+"comment-fold.js",
+				rutaLib+"codeMirrorInitializer.js",
+			];
+		}
+		else
+		{
+			rutaCodemirror = "chrome://devtools/content/sourceeditor/codemirror/";
+			arrJS = [	
+				rutaLib+"jquery.min.js",
+				rutaLib+"jqueryInitializer.js",
+				rutaCodemirror+"codemirror.js",
+				rutaCodemirror+"dialog/dialog.js",
+				rutaCodemirror+"search/searchcursor.js",
+				rutaCodemirror+"search/search.js",
+				rutaCodemirror+"selection/active-line.js",
+				rutaLib+"codemirror/addon/search/match-highlighter.js",
+				rutaCodemirror+"edit/matchbrackets.js",
+				rutaCodemirror+"mode/javascript.js",
+				rutaCodemirror+"fold/foldcode.js",
+				rutaCodemirror+"fold/foldgutter.js",
+				rutaCodemirror+"fold/brace-fold.js",
+				rutaCodemirror+"fold/comment-fold.js",
+				rutaLib+"codeMirrorInitializer.js",
+			];
+		}
+
 		var dynamicLoader = new DynamicLoader(
 		that.window,
+		arrJS,
 		[
-			rutaLib+"jquery.min.js",
-			rutaLib+"jqueryInitializer.js",
-			"chrome://browser/content/devtools/codemirror/codemirror.js",
-			"chrome://browser/content/devtools/codemirror/dialog.js",
-			"chrome://browser/content/devtools/codemirror/searchcursor.js",
-			"chrome://browser/content/devtools/codemirror/search.js",
-			"chrome://browser/content/devtools/codemirror/activeline.js",
-			rutaLib+"codemirror/addon/search/match-highlighter.js",
-			"chrome://browser/content/devtools/codemirror/matchbrackets.js",
-			"chrome://browser/content/devtools/codemirror/javascript.js",
-			"chrome://browser/content/devtools/codemirror/foldcode.js",
-			"chrome://browser/content/devtools/codemirror/foldgutter.js",
-			"chrome://browser/content/devtools/codemirror/brace-fold.js",
-			"chrome://browser/content/devtools/codemirror/comment-fold.js",
-			rutaLib+"codeMirrorInitializer.js",
-		],
-		[
-			"chrome://browser/content/devtools/codemirror/codemirror.css",
+			rutaCodemirror+"codemirror.css",
 			rutaLib+"codemirror/addon/fold/foldgutter.css",
 			rutaLib+"codemirror/codemirror_myConfigStyles.css",
 		],

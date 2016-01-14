@@ -8,7 +8,7 @@ function () {
 	}
 
 	var console = Firebug.ConsoleExposed.createFirebugConsole();
-	console._ok = console._error = console._info = console._help = function(){};
+	console._ok = console._error = console._warn = console._info = console._help = function(){};
 
 	var timer = {
 	   time: 0,

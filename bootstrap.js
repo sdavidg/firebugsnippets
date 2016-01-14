@@ -57,6 +57,8 @@ function firebugShutdown()
     }
 }
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
 function topWindowLoad(win) {}
 function topWindowUnload(win) {}
 
