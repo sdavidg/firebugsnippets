@@ -24,7 +24,10 @@ function(DynamicLoader, Store, FBL, Options, console)
 		var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
 			.getService(Components.interfaces.nsIXULAppInfo);
 		
-		var arrJS, rutaCodemirror;		
+		var arrJS, rutaCodemirror;
+		var subFolder1 = parseInt(appInfo.version)>=46?"lib/":"";
+		var subFolder2 = parseInt(appInfo.version)>=46?"addon/":"";
+		
 		if(parseInt(appInfo.version)<=43)
 		{
 			rutaCodemirror = "chrome://browser/content/devtools/codemirror/";
@@ -52,18 +55,18 @@ function(DynamicLoader, Store, FBL, Options, console)
 			arrJS = [	
 				rutaLib+"jquery.min.js",
 				rutaLib+"jqueryInitializer.js",
-				rutaCodemirror+"codemirror.js",
-				rutaCodemirror+"dialog/dialog.js",
-				rutaCodemirror+"search/searchcursor.js",
-				rutaCodemirror+"search/search.js",
-				rutaCodemirror+"selection/active-line.js",
+				rutaCodemirror+subFolder1+"codemirror.js",
+				rutaCodemirror+subFolder2+"dialog/dialog.js",
+				rutaCodemirror+subFolder2+"search/searchcursor.js",
+				rutaCodemirror+subFolder2+"search/search.js",
+				rutaCodemirror+subFolder2+"selection/active-line.js",
 				rutaLib+"codemirror/addon/search/match-highlighter.js",
-				rutaCodemirror+"edit/matchbrackets.js",
+				rutaCodemirror+subFolder2+"edit/matchbrackets.js",
 				rutaCodemirror+"mode/javascript.js",
-				rutaCodemirror+"fold/foldcode.js",
-				rutaCodemirror+"fold/foldgutter.js",
-				rutaCodemirror+"fold/brace-fold.js",
-				rutaCodemirror+"fold/comment-fold.js",
+				rutaCodemirror+subFolder2+"fold/foldcode.js",
+				rutaCodemirror+subFolder2+"fold/foldgutter.js",
+				rutaCodemirror+subFolder2+"fold/brace-fold.js",
+				rutaCodemirror+subFolder2+"fold/comment-fold.js",
 				rutaLib+"codeMirrorInitializer.js",
 			];
 		}
@@ -72,7 +75,7 @@ function(DynamicLoader, Store, FBL, Options, console)
 		that.window,
 		arrJS,
 		[
-			rutaCodemirror+"codemirror.css",
+			rutaCodemirror+subFolder1+"codemirror.css",
 			rutaLib+"codemirror/addon/fold/foldgutter.css",
 			rutaLib+"codemirror/codemirror_myConfigStyles.css",
 		],
