@@ -203,7 +203,7 @@ function(DynamicLoader, Store, Options, ExportImport, FBL, SnippetsWindowEdit, S
 		return new RegExp(limpiaCadena(cadena), "i");
 	}
 	function markLi(next)
-	{
+	{		
 		var posElement = next?1:-1;
 		var marcado = $j(".li_snippetElement_marcado");
 		var siguiente;
@@ -374,6 +374,8 @@ SnippetsWindow.prototype =
 				li.show();
 			}
 		});
+		$j(".li_snippetElement_marcado").removeClass("li_snippetElement_marcado");
+		markLi(true);
 	},
 	updateList: function(callback)
 	{
@@ -425,7 +427,17 @@ SnippetsWindow.prototype =
 										"<img class='borrar' src='"+this.rutaImgDelete+"'>"+
 									"</span>"+
 								"</li>"
-								).appendTo(ol);
+								)
+								//.attr("title", snippets[key_snippet].code)
+								.appendTo(ol);
+								
+								//xxxDavid. Intentamos poner un tooltipText
+								//.attr("title", snippets[key_snippet].code)
+								//.attr("tooltiptext", snippets[key_snippet].code)
+								//.attr("value", snippets[key_snippet].code)								
+								//li[0].tooltipText="hi";
+								//li.appendTo(ol);
+								//.attr("tooltiptext", snippets[key_snippet].code)
 							}
 						}
 						if (callback)
@@ -478,7 +490,7 @@ SnippetsWindow.prototype =
 					orden: index,
 					id_snippets_groups: group_id
 				};
-				//NOTA: hacemos esta comprobación para no actulizar elementos que no se han modificado,
+				//NOTA: hacemos esta comprobación para no actualizar elementos que no se han modificado,
 				//pero después de varias pruebas no se aprecia diferencia de tiempos
 				if(!snippetReference[snippet_id+"-"+index+"-"+group_id])
 				{
